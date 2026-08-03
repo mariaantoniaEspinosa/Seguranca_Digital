@@ -53,10 +53,28 @@
   - Endereço MAC: identificador físico, único por fabricante, gravado na placa de rede, usado apenas dentro do mesmo segmento local.
   - Wi-FI: versão sem fio do mesmo princípio, com desafios extras de segurança pela natureza aberta do meio de transmissão
   - ARP: traduz endereço IP em endereço MAC dentro da rede local, alvo clássico de ataque de intercepção (ARP spoofing)
+### Classes de endereços IP e CIDR
+<img width="860" height="178" alt="image" src="https://github.com/user-attachments/assets/47f3cdba-52a3-4432-b926-fd3fcf64760c" />
 
+## NAT - Network Addres Translation - por que sua rede não expõe IPS internos
+- Traduz endereços provados (internos) em um único endereço público, na saída para a internet 
+- economiza IPs públicos: Toda uma rede local sai para a internet usando um único endereço IPv4 público — essencial diante do esgotamento do IPv4.
+- Ganho de segurança indireto: Hosts internos não são diretamente endereçáveis pela internet — um invasor externo não consegue simplesmente "apontar" para eles.
+- Não substitui um firewall: NAT não foi desenhado como controle de segurança — é sempre complementado por regras explícitas de firewall.
+## Portas e serviços comuns 
+<img width="846" height="272" alt="image" src="https://github.com/user-attachments/assets/c84c57cd-157c-4516-b471-f8299d346276" />
 
-
+## Firewalls e ACLs: o primeiro controle de rede
+- Decidem, pacote a pacote, o que entra e o que sai com base em regras explícitas
+- Firewall:  Analisa o tráfego que passa por ele e aplica regras: permite ou bloqueia com base em IP de origem/destino, porta e protocolo
+- ACL: Lista ordenada de regras de permissão/negação, aplicada em um roteador ou switch — a lógica por trás de muitos firewalls.
+## VLANs e segmentação de rede
+- dividir uma rede física em várias redes lógicas isoladas, mesmo cabo, tráfego separado.
+- Isolamento por finalidade: Rede de convidados, rede administrativa e rede de servidores em VLANs separadas — mesmo compartilhando o mesmo switch físico
+- Redução da superfície de ataque: Um host comprometido em uma VLAN não enxerga diretamente hosts de outra, limita o "movimento lateral" de um invasor.
+- Organização e desempenho: Também reduz tráfego de broadcast desnecessário e organiza a rede por departamento ou função.
 
 
 Glossário:
-chave pública versus chave privada
+-chave pública versus chave privada
+-movimentação lateral
