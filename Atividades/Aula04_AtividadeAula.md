@@ -22,3 +22,20 @@
   Nmap done: 1 IP address (1 host up) scanned in 31.64 seconds
 
 ```
+
+<img width="993" height="478" alt="image" src="https://github.com/user-attachments/assets/324f8a19-03d5-4e7e-bd2d-7047f912feef" />
+
+### Respostas dos cenários
+A. Porta 3306 (MySQL) exposta é quase sempre um risco — bancos de dados não deveriam estar
+acessíveis diretamente da internet.
+
+B. "Filtered" significa que existe um firewall no caminho — "closed" significa que o host respondeu,
+mas não há serviço ali.
+
+C. Só a porta 443 exposta atrás de NAT sugere port forwarding único — os demais hosts da rede
+provavelmente seguem inacessíveis de fora.
+
+
+
+
+
