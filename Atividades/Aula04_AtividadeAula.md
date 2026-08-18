@@ -74,6 +74,8 @@ C. Só a porta 443 exposta atrás de NAT sugere port forwarding único — os de
 provavelmente seguem inacessíveis de fora.
 
 
+<img width="1158" height="650" alt="image" src="https://github.com/user-attachments/assets/01f2028f-616b-4ebf-a02b-555726135c5c" />
+
 
 
 
