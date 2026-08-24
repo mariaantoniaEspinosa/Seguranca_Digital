@@ -94,3 +94,28 @@
   - top / htop: monitor interativo de processos em tempo real
   - kill PID: encerra um processo pelo seu identificador
   - comando &: executa um comando em segundo plano (background)
+- **Lendo arquivos grandes e logs**
+  - head -n 20 arquivo: mostra as 20 primeiras linhas do arquivo
+  - tail -n 20 arquivo: mostra as 20 últimas linhas do arquivo
+  - tail -f /var/log/auth.log: acompanha um log em tempo real, linha a linha
+  - wc -l resultado.txt: conta linhas, útil para saber quantas portas o grep encontrou
+- **Espaço em disco**
+  - df -h: espaço livre e usado por partição, em formato legível
+  - du -sh pasta/: tamanho total de uma pasta específica
+  - du -sh * | sort -h: ordena o tamanho das pastas do menor para o maior
+- **Compactação e arquivamento**
+  - SLIDES
+- **Gerenciamento de pacotes (apt)**
+  - apt update: atualiza a lista de pacotes dispooníveis nos repositórios
+  - apt upgrade: atualiza os pacotes já instalados  para a versão mais recente
+  - apt install gobuster: instala uma ferramenta específica 
+  - apt remove pacote: remove um pacote instalado
+- **Comandos de rede básicos**
+  - ip a: mostra as interfaces da rede e endereços IP da máquina
+  - ss -tuln: lista as portas e conexões abertas
+  - ping alvo: testa conecttividade (ICMP)
+  - curl /wget URL: SLIDE
+  - nc host porta: SLIDE
+- **nc é o mesmo banner grabbing da Aula 04**
+  - $ nc 192.168.1.20 22
+  - SSH-2.0-OpenSSH_8.9p1 Ubuntu-3ubuntu0.4
