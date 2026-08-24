@@ -74,7 +74,7 @@
   - nmap -- help: mostra um resumo rápido das opções de uso
   - apropos porta: busca comandos relacionados a um termo
   - nan -k rede: equivalente a apropos
-- **histórico, atalhos e aliases**
+- **Histórico, atalhos e aliases**
   - history: lista os comandos já executados na sessão
   - Ctrl + R: busca reversa no histórico de comandos
   - Tab: autocompleta comandos, arquivos e caminhos
