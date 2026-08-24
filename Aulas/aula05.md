@@ -1,0 +1,59 @@
+### Prova dia 14/09 
+## Kali Linux: linha de comando 
+- **Revisão da última aula**:
+- Handshake TCP e estados de porta
+- Tipos de scan e Nmap
+- Banner grabbing com nc
+- NAT e visibilidade externa
+- Por que o SYN scan precisa de sudo?
+### Aula 05 
+# O que é o Kali Linux?
+- É uma distribuição Debian voltada especificamente para testes de invasão e auditoria de segurança
+- Mantida pela Offensive Security
+- Vêm com ferramentas pré-instaladas
+- Voltada para o reconhecimento e exploração
+    -  organizada por fases do teste de invasão: coleta, varredura, exploração e pós-exploração
+- **Estrutura do sistema: FHS - Filesystem Hierarchy Standard**
+  - todo Linux organiza seus arquivos a partir de uma raíz única (/)
+    - /etc 
+    - /home
+    - /root
+    - /var
+    - /urs
+    - /opt
+- **Navegação Básica:**
+  - pwd: mostra qual diretório atual
+  - ls: mostrar o conteúdo do diretório
+  - la - la: lista tudo, incluindo ocultos
+  - cd/caminho: muda para o diratório informado
+  - cd .. : sobre um  nível no diretório
+  - cd ~ : vai direto para o diretório home do usuário
+- **Manipulação de arquivos e diretórios:**
+    - mkdir pasta: cria um novo diretório
+    - touch arq.txt: cria um arquivo vazio
+    - cp origin destino: copia um arquivo ou diretório
+    - mv origin destino: move ou renomeia um arquivo
+    - rn arquivo: remove um arquivo
+    - cat arquivo: exibe todo o conteúdo do arquivo
+    - less arquivo: exibe o conteúdo com rolagem
+    - nano/ via arquivo: abre os editores de texto no terminal
+- **Wildcards e globbing**:
+  - *: qualquer sequência de caractere
+  - ?: um único caractere
+  - [abc]: qualquer caractere dentro do conjunto
+  - {a, b}: expansão de chaves (brace expansion)
+- **Encontrando arquivos: find e locate**:
+  - find/ - name "*.conf: busca por nome a partir da raiza do sistema
+  - find . - type f- ntime -7: arquivos modificados nos últimos 7 dias
+  - find /pern - 400 2>/dev/null: arquivos com bit suid - relevante para escalonamento de privilégio
+  - locate nome: busca rápida usando um índice pré-construído
+- **Links simbólicos:**
+  - $ ln - s /caminho/original /caminho/atalho
+- **Permissões: rwx e notação octal**:
+  - -rwxr-xr--
+  - onde:
+    - -: tipo
+    - rwx: dono
+    - r-x: grupo
+    - r--: outros
+    
