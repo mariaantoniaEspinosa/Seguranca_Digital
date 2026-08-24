@@ -119,3 +119,12 @@
 - **nc é o mesmo banner grabbing da Aula 04**
   - $ nc 192.168.1.20 22
   - SSH-2.0-OpenSSH_8.9p1 Ubuntu-3ubuntu0.4
+- **Conectando a hosts remotos: SSH**
+  - ssh usuario@host
+  - shh -p 222 usuario@host
+  - scp arquivo usuario@host:/destino
+  - ssh-keygen
+- **Variáveis de ambiente e PATH**: $ echo $PATH
+  - variavél de ambiente: um valor nomeado disponível para os programas da sessão
+  - PATH: lista de diretórios onde o shell procura executáveis 
+  - export VAR=valor: define uma variável de ambiente na sessão atual
