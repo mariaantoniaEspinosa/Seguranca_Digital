@@ -56,4 +56,41 @@
     - rwx: dono
     - r-x: grupo
     - r--: outros
-    
+- **chmod, chown - por que o Nmpa pede sudo**:
+  - chmod: altera as permissões de um arquivo
+    - chmod 754 script.sh
+    - chmod +x script.sh
+  - chwon: altera o dono e/ou grupo de um arquivo
+    - chwon usuario:grupo arquivo
+- **Usuários grupos e privilégios**:
+  - usuário comum -> sudo comando -> root privilégio total
+  - usuário comum -> su - -> root privilégio total
+      - whoami (ahomi?)
+      - id
+      - groups
+      - sudo adduser aluno
+- **Pedindo ajuda ao prório sistema:**
+  - nan nmap: abre o manual completo do comando
+  - nmap -- help: mostra um resumo rápido das opções de uso
+  - apropos porta: busca comandos relacionados a um termo
+  - nan -k rede: equivalente a apropos
+- **histórico, atalhos e aliases**
+  - history: lista os comandos já executados na sessão
+  - Ctrl + R: busca reversa no histórico de comandos
+  - Tab: autocompleta comandos, arquivos e caminhos
+  - alias nm='nmap -sV -T4': cria um atalho para um comando longo
+- **Redirecionamento e pipes**
+  - conectar a saída de um comando a um arquivo - ou à entrada de outro comando
+  - nmap -sV alvo (gera saída no terminal (stdout)) -> resultado.txt (redireciona para um arquivo) -> cat resultado.txt (lê o conteúdo salvo no arquivo)
+    - nmap -sV alvo -> grep open (pipe: passa a saída para outro comando)
+- **-oN também é redirecionamento**
+  - $ nmap -oN saida.txt alvo
+    - nmap -oN saida.txt: formato nativo do nmap
+    - nmap alvo > saida.txt: redirecionamento genérico do shell
+    - nmap alvo | grep open:  SLIDE
+- **Processos**: todo programa em execução é um processo
+  - ps: lista os processos em execução na sessão atual
+  - ps aux: lista todos os processos do sistema, de todos os usuários
+  - top / htop: monitor interativo de processos em tempo real
+  - kill PID: encerra um processo pelo seu identificador
+  - comando &: executa um comando em segundo plano (background)
