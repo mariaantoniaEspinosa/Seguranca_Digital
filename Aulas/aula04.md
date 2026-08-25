@@ -31,11 +31,43 @@ também precisa de uma regra explícita (port forwarding) para ser alcançado de
 - **O que ela faz?** Varre portas TCP/UDP, identifica versões de serviço, detecta sistema operacional e roda scripts de enumeração — tudo em uma única ferramenta.
 - **Onde ela roda?** Linha de comando em Linux, Windows e MacOS
 ## Sintaxe 
-- sS: half-open, o tipo padrão mais usado
-- sT: Connect scan, completa o handshake, não exige privilégio
-- sU: Varredura de portas UDP
-- sV: detecta a versão do serviço rodando em cada porta aberta
-- 0: tenta identificar o sistema operacional do alvo
-- p: define quais portas varrer
-- A: modo agressivo, combina -sV, -0 e scripts básicos
-- T4: define a velocidade do scan
+- -sS: half-open, o tipo padrão mais usado
+- -sT: Connect scan, completa o handshake, não exige privilégio
+- -sU: Varredura de portas UDP
+- -sV: detecta a versão do serviço rodando em cada porta aberta
+- -0: tenta identificar o sistema operacional do alvo
+- -p: define quais portas varrer
+- -A: modo agressivo, combina -sV, -0 e scripts básicos
+- -T4: define a velocidade do scan
+## Flags para cada situação
+- nmap -sS -p- alvo: varre todas as 65.535 portas TCP com SYN scan
+- nmap -sV -sC alvo: detecta as versões de serviço e roda os scripts padrão do NSE
+- nmap -Pn -p 80,443 alvo: ignora a checagem de host ativo (-Pn), útil quando o alvo bloqueia ping mas as portas respodem
+- nmap -sU -sS -p U: 53. T: 22, 80 alvo: combina varredura UDP e TCP na mesma execução
+- nmap -oN saida.txt alvo: salva a saída em um arquivo de texto, essencial para documentar um teste de invasão
+## Escolhendo o scan certo
+<img width="910" height="487" alt="image" src="https://github.com/user-attachments/assets/5a278142-027d-4140-9a8b-bd8489dcc9b7" />
+
+## Fingierprinting: pistas do sistema
+- A flag -O compara características da pilha TCP/IP do alvo com uma base de assinaturas conhecidas.
+# Varredura X enumeração
+- Varredura é ampla e rasa
+- Enumeração é estreita e profunda
+# Banner grabbing
+- Técnica mais simples de enumeração: perguntar diretamente ao serviço quem ele é
+### O que cada protocolo costuma revelar
+- SMB: 445 -> nome do domínio, compartilhamentos, versão do windows, usuários locais
+- FTP: 21 -> se aceita login anônimo, versão do servidor, listagem de diretórios
+- SSH: 22 -> versão do OpenSSH, algoritmos de criptografia aceitos
+- HTTP/HTTPS: 80/443 -> tecnologia d  servidor web, CMS, diretórios expostos, certificados TLS
+- SNMP: 161 -> configuração de rede, uptime, e às vezes até credenciais
+- DNS: 53 -> transferência de zona mal configurada pode revelar todos os hosts de um domínio
+## Além do Nmap
+- enum4linux: enumeração completa de compartilhamentos e usuários SMB
+- smbclient: navega e acessa compartilhamentos SMB diretamente, como um cliente
+- nikto: varredura de vulnerabilidade específicas em servidores web
+- gobuster / dirb: descobre diretórios e arquivos escondidos em um servidor web
+# Nmap X Masscan X Zenmap
+- Nmap: Detecção de versão, NSE, fingerprinting — o mais completo
+- Masscan:  Varre a internet inteira em minutos — extremamente rápido
+- Zenmap:  Interface gráfica do Nmap — bom para iniciantes e relatórios visuais
